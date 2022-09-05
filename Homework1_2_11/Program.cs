@@ -10,20 +10,23 @@ namespace Homework1_2_11
     {
         static void Main(string[] args)
         {
-            Random randomCount = new Random();
-            Random randomBracket = new Random();
+            Random random = new Random();
             int randomNumber;
-            int count= randomCount.Next(2, 20);
+            int minCountBracket = 2;
+            int maxCountBracket = 19;
+            int countBracket= random.Next(minCountBracket, maxCountBracket+1);
             string bracketString = "";
             char leftBracket = '(';
             char rightBracket = ')';
             bool isCorrect=false;
             int leftBracketCount=0;
             int rightBracketCount=0;
+            int evenNumber = 2;
+            int countBracketType = 2;
 
-            for (int i=0;i<count;i++)
+            for (int i=0;i<countBracket; i++)
             {
-                randomNumber = randomBracket.Next(0, 2);
+                randomNumber = random.Next(0, countBracketType);
 
                 if (randomNumber==0)
                 {
@@ -35,11 +38,11 @@ namespace Homework1_2_11
                 }
             }
 
-            if (bracketString.Length%2==0)
+            if (bracketString.Length%evenNumber==0)
             {
-                foreach (char k in bracketString)
+                foreach (char item in bracketString)
                 {
-                    if (k==leftBracket)
+                    if (item==leftBracket)
                     {
                         leftBracketCount++;
                     }

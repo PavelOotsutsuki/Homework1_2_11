@@ -42,6 +42,7 @@ namespace Homework1_2_11
             if (bracketString.Length%evenNumber==0)
             {
                 int gamut;
+
                 foreach (char SymbolOfBracketString in bracketString)
                 {
                     if (SymbolOfBracketString == leftBracket)
@@ -64,7 +65,6 @@ namespace Homework1_2_11
                     {
                         maxGamut = gamut;
                     }
-
                 }
 
                 if (leftBracketCount== rightBracketCount)

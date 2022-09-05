@@ -23,6 +23,7 @@ namespace Homework1_2_11
             int rightBracketCount=0;
             int evenNumber = 2;
             int countBracketType = 2;
+            int maxGamut = 0;
 
             for (int i=0;i<countBracket; i++)
             {
@@ -40,9 +41,10 @@ namespace Homework1_2_11
 
             if (bracketString.Length%evenNumber==0)
             {
-                foreach (char item in bracketString)
+                int gamut;
+                foreach (char SymbolOfBracketString in bracketString)
                 {
-                    if (item==leftBracket)
+                    if (SymbolOfBracketString == leftBracket)
                     {
                         leftBracketCount++;
                     }
@@ -55,6 +57,14 @@ namespace Homework1_2_11
                     {
                         break;
                     }
+
+                    gamut = leftBracketCount - rightBracketCount;
+
+                    if (maxGamut<gamut)
+                    {
+                        maxGamut = gamut;
+                    }
+
                 }
 
                 if (leftBracketCount== rightBracketCount)
@@ -69,7 +79,7 @@ namespace Homework1_2_11
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write(bracketString);
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.Write(" является корректным скобочным выражением с максимальной глубиной вложенности " + rightBracketCount);
+                Console.Write(" является корректным скобочным выражением с максимальной глубиной вложенности " + maxGamut);
             }
             else
             {
